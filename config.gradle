@@ -6,7 +6,7 @@
  **/
 ext {
     android = [
-            applicationId    : 'com.xing.wanandroid',
+            applicationId    : 'com.sean.android',
             compileSdkVersion: 28,
             buildToolsVersion: "28.0.3",
             minSdkVersion    : 17,
