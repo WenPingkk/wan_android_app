@@ -23,7 +23,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        gotoMainActivity();
+        gotoMainActivity();
     }
 
     private void gotoMainActivity() {
