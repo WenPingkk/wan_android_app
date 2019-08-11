@@ -33,6 +33,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         mContext = this;
         setStatusBarColor();
 
+        //在基类中注册 eventBus
+        if (this.getClass().isAnnotationPresent(BindEventBus.class)) {
+            EventBusHelper.register(this);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);//黑色
+        }
+
         registerNetworkChangeReceiver();
         initView();
         initData();
@@ -71,7 +80,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     /**
-     * 反注册广播
+     * 反注册广播和eventbus
      */
     @Override
     protected void onDestroy() {
