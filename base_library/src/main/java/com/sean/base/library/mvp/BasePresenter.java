@@ -3,6 +3,7 @@ package com.sean.base.library.mvp;
 import android.content.Context;
 
 import com.sean.base.library.base.BaseObserver;
+import com.sean.base.library.http.RetrofitClient;
 
 import java.lang.ref.WeakReference;
 
@@ -64,5 +65,12 @@ public class BasePresenter<V extends IView> implements IPresenter<V> {
     @Override
     public V getView() {
         return viewRef.get();
+    }
+
+    protected <T> T create(Class<T> clazz) {
+        return RetrofitClient
+                .getInstance()
+                .getRetrofit()
+                .create(clazz);
     }
 }
