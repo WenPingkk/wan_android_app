@@ -3,6 +3,7 @@ package com.sean.module.main.fragment;
 import android.view.View;
 
 import com.sean.base.library.base.BaseMVPFragment;
+import com.sean.module.main.R;
 import com.sean.module.main.bean.BannerResult;
 import com.sean.module.main.bean.HomeArticleResult;
 import com.sean.module.main.bean.WeChatAuthorResult;
@@ -20,12 +21,12 @@ public class HomeFragment extends BaseMVPFragment<HomePresenter> implements Home
 
     @Override
     protected HomePresenter createPresenter() {
-        return null;
+        return new HomePresenter();
     }
 
     @Override
     protected int getLayoutResId() {
-        return 0;
+        return R.layout.fragment_home;
     }
 
     @Override
