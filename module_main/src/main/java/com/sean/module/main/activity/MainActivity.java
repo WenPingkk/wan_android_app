@@ -2,14 +2,23 @@ package com.sean.module.main.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.sean.base.library.base.BaseActivity;
+import com.sean.base.library.util.StatusBarUtil;
 import com.sean.module.main.R;
+import com.sean.module.main.fragment.HomeFragment;
 import com.sean.module.main.fragment.SystemFragment;
+import com.sean.module.main.fragment.ThirdFragment;
+import com.sean.module.main.fragment.FourthFragment;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 
+import java.util.ArrayList;
 import java.util.List;
 //com.xing.main.activity.MainActivity
 /**
@@ -52,27 +61,70 @@ public class MainActivity extends BaseActivity {
                     return;
                 }
                 if (checkedId == R.id.rb_home) {
-
+                    selectFragment(0);
                 } else if (checkedId == R.id.rb_project) {
-
+                    selectFragment(1);
                 } else if (checkedId == R.id.rb_system) {
-
+                    selectFragment(2);
                 } else if (checkedId == R.id.rb_mine) {
-
+                    selectFragment(3);
                 }
             }
         });
-
-
-
-
     }
 
-    private void selectFragment(int i) {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AndPermission
+                .with(this)
+                .runtime()
+                .permission(Permission.Group.STORAGE)
+                .onGranted(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> data) {
 
+                    }
+                }).onDenied(new Action<List<String>>() {
+            @Override
+            public void onAction(List<String> data) {
+
+            }
+        }).start();
+    }
+
+    private void selectFragment(int index) {
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        for (int i = 0; i < mFragmentList.size(); i++) {
+            if (i == index) {
+                transaction.show(mFragmentList.get(i));
+            } else {
+                transaction.hide(mFragmentList.get(i));
+            }
+        }
+        transaction.commit();
     }
 
     private void createFragment() {
+        mFragmentList = new ArrayList<>();
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        HomeFragment homeFragment = new HomeFragment();
+        transaction.add(R.id.fl_main_container, homeFragment);
+        mFragmentList.add(homeFragment);
+
+        SystemFragment systemFragment = new SystemFragment();
+        transaction.add(R.id.fl_main_container, systemFragment);
+        mFragmentList.add(systemFragment);
+
+        ThirdFragment thirdFragment = new ThirdFragment();
+        transaction.add(R.id.fl_main_container, thirdFragment);
+        mFragmentList.add(thirdFragment);
+
+        FourthFragment fourthFragment = new FourthFragment();
+        transaction.add(R.id.fl_main_container, fourthFragment);
+        mFragmentList.add(fourthFragment);
+
+        transaction.commit();
 
     }
 
@@ -80,4 +132,14 @@ public class MainActivity extends BaseActivity {
     protected int getLayoutResId() {
         return R.layout.activity_main;
     }
+
+    @Override
+    public void setStatusBarColor() {
+        StatusBarUtil.setTransparentForImageViewInFragment(this, null);
+    }
+
+    public void setStatusBarTranslucent(int alpha) {
+        StatusBarUtil.setTranslucentForImageViewInFragment(this, alpha, null);
+    }
+
 }

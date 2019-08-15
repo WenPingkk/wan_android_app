@@ -66,7 +66,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 设置状态栏颜色
      */
-    private void setStatusBarColor() {
+    public void setStatusBarColor() {
         StatusBarUtil.setColor(this, getResources()
                 .getColor(android.R.color.white), 0);
     }
