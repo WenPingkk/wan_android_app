@@ -3,8 +3,6 @@ if (isRunAlone.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
-apply plugin: 'org.greenrobot.greendao' // apply plugin
-
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -42,11 +40,10 @@ android {
         }
     }
 
-
 }
 
 dependencies {
-    implementation project(path: ':base_library')
+    implementation project(':base_library')
     // arouter-compiler
     annotationProcessor rootProject.ext.dependencies['arouter-compiler']
     annotationProcessor rootProject.ext.dependencies['glide-compiler']
