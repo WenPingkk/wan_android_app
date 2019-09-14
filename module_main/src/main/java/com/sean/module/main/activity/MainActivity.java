@@ -12,15 +12,14 @@ import com.sean.base.library.util.StatusBarUtil;
 import com.sean.module.main.R;
 import com.sean.module.main.fragment.HomeFragment;
 import com.sean.module.main.fragment.SystemFragment;
-import com.sean.module.main.fragment.ThirdFragment;
-import com.sean.module.main.fragment.FourthFragment;
+import com.sean.module.main.fragment.ProjectFragment;
+import com.sean.module.main.fragment.MineFragment;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
 import java.util.ArrayList;
 import java.util.List;
-//com.xing.main.activity.MainActivity
 /**
  * Author WenPing
  * CreateTime 2019/8/11.
@@ -31,39 +30,52 @@ import java.util.List;
 @Route(path = "/main/MainActivity")
 public class MainActivity extends BaseActivity {
 
-    private RadioGroup mRadioGroup;
-    private FragmentManager mFragmentManager;
-    private List<Fragment> mFragmentList;
-    private RadioButton mHomeRadioButton;
-    private RadioButton mMineRadioButton;
+    private RadioGroup radioGroup;
+    private FragmentManager fragmentManager;
+    private List<Fragment> fragmentList;
+    private RadioButton homeRadioButton;
     private int currentSelectedId = R.id.rb_home;
-    private SystemFragment mSystemFragment;
+    private SystemFragment systemFragment;
+    private ProjectFragment projectFragment;
+    private MineFragment mineFragment;
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_main;
+    }
+
 
     @Override
     protected void initView() {
-        mRadioGroup = findViewById(R.id.rg_radio_group);
-        mHomeRadioButton = findViewById(R.id.rb_home);
-        mMineRadioButton = findViewById(R.id.rb_mine);
+        radioGroup = findViewById(R.id.rg_radio_group);
+        homeRadioButton = findViewById(R.id.rb_home);
     }
 
+    /**
+     * 初始化fragment
+     * 添加选择监听
+     */
     @Override
     protected void initData() {
         super.initData();
-        mFragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         createFragment();
         selectFragment(0);
-        mHomeRadioButton.setChecked(true);
-        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        homeRadioButton.setChecked(true);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 //如果是当前已经选中的 tab,不切换
                 if (checkedId == currentSelectedId) {
                     return;
                 }
+                currentSelectedId = checkedId;
                 if (checkedId == R.id.rb_home) {
                     selectFragment(0);
                 } else if (checkedId == R.id.rb_project) {
                     selectFragment(1);
+//                    projectFragment.setstat
+                    StatusBarUtil.setLightMode(MainActivity.this);
                 } else if (checkedId == R.id.rb_system) {
                     selectFragment(2);
                 } else if (checkedId == R.id.rb_mine) {
@@ -94,43 +106,39 @@ public class MainActivity extends BaseActivity {
     }
 
     private void selectFragment(int index) {
-        FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        for (int i = 0; i < mFragmentList.size(); i++) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        for (int i = 0; i < fragmentList.size(); i++) {
             if (i == index) {
-                transaction.show(mFragmentList.get(i));
+                transaction.show(fragmentList.get(i));
             } else {
-                transaction.hide(mFragmentList.get(i));
+                transaction.hide(fragmentList.get(i));
             }
         }
         transaction.commit();
     }
 
     private void createFragment() {
-        mFragmentList = new ArrayList<>();
-        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        fragmentList = new ArrayList<>();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         HomeFragment homeFragment = new HomeFragment();
         transaction.add(R.id.fl_main_container, homeFragment);
-        mFragmentList.add(homeFragment);
+        fragmentList.add(homeFragment);
 
-        SystemFragment systemFragment = new SystemFragment();
+        projectFragment = new ProjectFragment();
+        transaction.add(R.id.fl_main_container, projectFragment);
+        fragmentList.add(projectFragment);
+
+        systemFragment = new SystemFragment();
         transaction.add(R.id.fl_main_container, systemFragment);
-        mFragmentList.add(systemFragment);
+        fragmentList.add(systemFragment);
 
-        ThirdFragment thirdFragment = new ThirdFragment();
-        transaction.add(R.id.fl_main_container, thirdFragment);
-        mFragmentList.add(thirdFragment);
 
-        FourthFragment fourthFragment = new FourthFragment();
-        transaction.add(R.id.fl_main_container, fourthFragment);
-        mFragmentList.add(fourthFragment);
+        mineFragment = new MineFragment();
+        transaction.add(R.id.fl_main_container, mineFragment);
+        fragmentList.add(mineFragment);
 
         transaction.commit();
 
-    }
-
-    @Override
-    protected int getLayoutResId() {
-        return R.layout.activity_main;
     }
 
     @Override

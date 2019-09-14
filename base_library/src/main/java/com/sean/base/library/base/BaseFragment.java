@@ -52,10 +52,10 @@ public abstract class BaseFragment extends Fragment {
         return rootView;
     }
 
+    protected abstract void initData(View view);
+
     protected abstract int getLayoutResId();
 
-    private void initData(View view) {
-    }
 
     protected abstract void initView(View view);
 
