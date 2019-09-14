@@ -18,7 +18,8 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
     private Unbinder unbinder;
 
     @Override
-    protected void initView() {
+    protected void initData() {
+        super.initData();
         presenter = createPresenter();
         if (presenter != null) {
             presenter.attachView(this);
