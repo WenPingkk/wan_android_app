@@ -161,7 +161,7 @@ public class WebViewActivity extends BaseMVPActivity<WebPresenter> implements We
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(R.anim.anim_web_enter, R.anim.anim_web_exit);
+        overridePendingTransition(R.anim.anim_alpha, R.anim.anim_web_exit);
     }
 
     private void addArticleFavorite() {

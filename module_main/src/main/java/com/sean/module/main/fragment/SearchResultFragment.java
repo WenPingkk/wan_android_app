@@ -39,6 +39,11 @@ public class SearchResultFragment extends BaseMVPFragment<SearchResultPresenter>
     private SearchResultAdapter searchResultAdapter;
     private RefreshLayout refreshLayout;
 
+    /**
+     * 读取 关键词
+     * @param keyword
+     * @return
+     */
     public static SearchResultFragment newInstance(String keyword) {
         SearchResultFragment searchResultFragment = new SearchResultFragment();
         Bundle bundle = new Bundle();
