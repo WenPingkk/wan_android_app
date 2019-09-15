@@ -48,11 +48,11 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(getLayoutResId(), container, false);
         initView(rootView);
-        initData(rootView);
+        initData();
         return rootView;
     }
 
-    protected abstract void initData(View view);
+    protected abstract void initData();
 
     protected abstract int getLayoutResId();
 

@@ -93,12 +93,12 @@ public class HomeFragment extends BaseMVPFragment<HomePresenter> implements Home
     }
 
     @Override
-    protected void initData(View view) {
+    protected void initData() {
         linearLayoutManager = new LinearLayoutManager(mContext, linearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         //设置ItemDecoration 作为分割线
         LinearItemDecoration itemDecoration = new LinearItemDecoration(mContext)
-                .height(8f)
+                .height(0.8f)
                 .color(Color.parseColor("#66dddddd"));
         recyclerView.addItemDecoration(itemDecoration);
 

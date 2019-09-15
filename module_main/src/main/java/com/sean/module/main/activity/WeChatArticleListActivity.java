@@ -72,7 +72,7 @@ public class WeChatArticleListActivity extends BaseMVPActivity<WeChatArticlePres
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         //设置 分割线
         LinearItemDecoration itemDecoration = new LinearItemDecoration(mContext)
-                .height(8f)
+                .height(0.8f)
                 .margin(10, 10)
                 .color(Color.parseColor("#66dddddd"));
         recyclerView.addItemDecoration(itemDecoration);
