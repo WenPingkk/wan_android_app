@@ -1,5 +1,6 @@
 package com.sean.module.main.activity;
 
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -74,7 +75,7 @@ public class MainActivity extends BaseActivity {
                     selectFragment(0);
                 } else if (checkedId == R.id.rb_project) {
                     selectFragment(1);
-//                    projectFragment.setstat
+                    projectFragment.setStatusBarColor(Color.WHITE);
                     StatusBarUtil.setLightMode(MainActivity.this);
                 } else if (checkedId == R.id.rb_system) {
                     selectFragment(2);
