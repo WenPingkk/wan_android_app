@@ -13,6 +13,7 @@
         <activity android:name=".activity.SearchActivity"
                   android:exported="false" />
         <activity android:name=".activity.SystemArticleActivity" />
+        <activity android:name=".activity.AboutActivity" />
     </application>
 
 </manifest>

@@ -14,7 +14,7 @@
         android:background="@color/gray_f5"
         app:zoomMax="120dp">
 
-        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -44,7 +44,7 @@
                     android:layout_marginLeft="12dp"
                     android:background="@drawable/shape_circle_white" />
 
-                <CircleImageView
+                <com.sean.base.library.widget.CircleImageView
                     android:id="@+id/civ_avatar"
                     android:layout_width="100dp"
                     android:layout_height="100dp"

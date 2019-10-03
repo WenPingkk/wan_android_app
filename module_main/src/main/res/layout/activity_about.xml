@@ -26,7 +26,7 @@
         android:focusable="false"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="本项目基于 MVP + RxJava2 + Retrofit开发的组件化 App,利用周末时间完成。\n\n项目地址： https://github.com/xing16/WanAndroid"
+        android:text="本项目基于 MVP + RxJava2 + Retrofit开发的组件化 App,利用周末时间完成。\n\原项目地址： https://github.com/xing16/WanAndroid\n\n 还在更新中。\n\n地址： https://gitee.com/wenpingkk/wan-android-app.git"
         android:textColor="@color/black_333"
         android:textSize="16sp" />
 
