@@ -3,4 +3,5 @@
     <string name="search_article">搜索文章</string>
     <string name="add_favorite_success">添加收藏成功</string>
     <string name="delete_favorite_success">删除收藏成功</string>
+    <string name="no_login_tips">请先登录</string>
 </resources>

@@ -165,7 +165,7 @@ public class WebViewActivity extends BaseMVPActivity<WebPresenter> implements We
         overridePendingTransition(R.anim.anim_alpha, R.anim.anim_web_exit);
     }
 
-    @UserLoginTrace
+    @UserLoginTrace(value = 0)
     private void addArticleFavorite() {
         presenter.addArticleFavorite(id, title, author, url);
     }
