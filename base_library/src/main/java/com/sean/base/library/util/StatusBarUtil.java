@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
@@ -35,6 +36,20 @@ public class StatusBarUtil {
      */
     public static void setColor(Activity activity, @ColorInt int color) {
         setColor(activity, color, DEFAULT_STATUS_BAR_ALPHA);
+    }
+
+    public static void setStatusColor(Window window, int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(mixtureColor(color, alpha));
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
+    }
+
+    public static int mixtureColor(int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
+        int a = (color & 0xff000000) == 0 ? 0xff : color >>> 24;
+        return (color & 0x00ffffff) | (((int) (a * alpha)) << 24);
     }
 
     /**

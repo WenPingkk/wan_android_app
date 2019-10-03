@@ -27,7 +27,6 @@ import com.sean.base.library.widget.gridviewpager.GridViewPager;
 import com.sean.base.library.widget.gridviewpager.GridViewPagerAdapter;
 import com.sean.module.main.BuildConfig;
 import com.sean.module.main.R;
-import com.sean.module.main.activity.MainActivity;
 import com.sean.module.main.adapter.HomeArticleAdapter;
 import com.sean.module.main.bean.BannerResult;
 import com.sean.module.main.bean.HomeArticleResult;
@@ -175,7 +174,7 @@ public class HomeFragment extends BaseMVPFragment<HomePresenter> implements Home
             loginTxtView.setTextColor(getResources().getColor(android.R.color.white));
             logoImgView.setImageResource(R.drawable.ic_home_logo_white);
             searchTxtView.setBackground(getResources().getDrawable(R.drawable.shape_home_input));
-            ((MainActivity) getActivity()).setStatusBarTranslucent((int) (255 * percent));
+//            ((MainActivity) getActivity()).setStatusBarTranslucent((int) (255 * percent));
         } else {
             //超出了最大的差值;设置文字和图片黑色
             loginTxtView.setTextColor(getResources().getColor(R.color.colorAccent));

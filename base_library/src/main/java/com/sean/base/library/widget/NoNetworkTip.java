@@ -74,9 +74,12 @@ public class NoNetworkTip {
     }
 
     public void dismiss() {
-        isShowing = false;
-        mWindowManager.removeViewImmediate(mView);
-        mView = null;
+        //加非空判断
+        if (mView != null) {
+            isShowing = false;
+            mWindowManager.removeViewImmediate(mView);
+            mView = null;
+        }
     }
 
     public boolean isShowing() {

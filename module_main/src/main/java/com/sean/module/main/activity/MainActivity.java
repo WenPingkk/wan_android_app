@@ -1,6 +1,5 @@
 package com.sean.module.main.activity;
 
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,9 +11,9 @@ import com.sean.base.library.base.BaseActivity;
 import com.sean.base.library.util.StatusBarUtil;
 import com.sean.module.main.R;
 import com.sean.module.main.fragment.HomeFragment;
-import com.sean.module.main.fragment.SystemFragment;
-import com.sean.module.main.fragment.ProjectFragment;
 import com.sean.module.main.fragment.MineFragment;
+import com.sean.module.main.fragment.ProjectFragment;
+import com.sean.module.main.fragment.SystemFragment;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
@@ -75,7 +74,7 @@ public class MainActivity extends BaseActivity {
                     selectFragment(0);
                 } else if (checkedId == R.id.rb_project) {
                     selectFragment(1);
-                    projectFragment.setStatusBarColor(Color.WHITE);
+//                    projectFragment.setStatusBarColor(Color.WHITE);
                     StatusBarUtil.setLightMode(MainActivity.this);
                 } else if (checkedId == R.id.rb_system) {
                     selectFragment(2);
@@ -142,10 +141,10 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void setStatusBarColor() {
-        StatusBarUtil.setTransparentForImageViewInFragment(this, null);
-    }
+//    @Override
+//    public void setStatusBarColor() {
+//        StatusBarUtil.setTransparentForImageViewInFragment(this, null);
+//    }
 
     public void setStatusBarTranslucent(int alpha) {
         StatusBarUtil.setTranslucentForImageViewInFragment(this, alpha, null);
