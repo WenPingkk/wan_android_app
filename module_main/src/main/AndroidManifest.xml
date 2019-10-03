@@ -12,6 +12,7 @@
                   android:exported="false" />
         <activity android:name=".activity.SearchActivity"
                   android:exported="false" />
+        <activity android:name=".activity.SystemArticleActivity" />
     </application>
 
 </manifest>
