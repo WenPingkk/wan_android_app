@@ -104,6 +104,8 @@ public class ProjectPageFragment extends BaseLazyFragment<ProjectPagePresenter> 
 
     @Override
     public void onProjectList(ProjectResult projectResult) {
+        //获取完数据后 page进行自加，后续get数据时继续请求
+        //这种方式不太好，具体参考yizhi方式会更好。
         page++;
         if (projectResult != null) {
             List<ProjectResult.DatasBean> datas = projectResult.getDatas();

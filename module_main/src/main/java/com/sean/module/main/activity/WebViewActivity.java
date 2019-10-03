@@ -12,6 +12,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.sean.module.main.annotation.UserLoginTrace;
 import com.sean.base.library.base.BaseMVPActivity;
 import com.sean.base.library.constants.Constants;
 import com.sean.base.library.util.ToastUtil;
@@ -164,6 +165,7 @@ public class WebViewActivity extends BaseMVPActivity<WebPresenter> implements We
         overridePendingTransition(R.anim.anim_alpha, R.anim.anim_web_exit);
     }
 
+    @UserLoginTrace
     private void addArticleFavorite() {
         presenter.addArticleFavorite(id, title, author, url);
     }

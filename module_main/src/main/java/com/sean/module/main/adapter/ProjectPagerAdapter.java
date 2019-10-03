@@ -55,7 +55,7 @@ public class ProjectPagerAdapter extends FragmentPagerAdapter {
     }
 
     /**
-     * 重写 destroyItem 方法，不调用父类的destroy方法；否则页面没了
+     * 重写 destroyItem 方法，不调用父类的destroy方法；否则页面没了，
      * @param container
      * @param position
      * @param object
