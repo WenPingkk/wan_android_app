@@ -6,16 +6,15 @@ package com.sean.base.library.base;
  * Description:
  * 网络请求返回的数据,按照格式统一包装成 BaseResponse 类
  */
-public class BaseResponse <T>{
+public class BaseResponse<T> {
 
     private int errorCode = -1;
     private String errorMsg;
     private T data;
-
     /**
-     * 兼容gangk io
+     * 兼容 gank api
      */
-    private T result;
+    private T results;
     private boolean error = true;
 
     public int getErrorCode() {
@@ -42,16 +41,16 @@ public class BaseResponse <T>{
         this.data = data;
     }
 
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
     public boolean isError() {
         return error;
+    }
+
+    public T getResults() {
+        return results;
+    }
+
+    public void setResults(T results) {
+        this.results = results;
     }
 
     public void setError(boolean error) {
@@ -64,8 +63,6 @@ public class BaseResponse <T>{
                 "errorCode=" + errorCode +
                 ", errorMsg='" + errorMsg + '\'' +
                 ", data=" + data +
-                ", result=" + result +
-                ", error=" + error +
                 '}';
     }
 }

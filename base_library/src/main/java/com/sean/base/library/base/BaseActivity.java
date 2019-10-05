@@ -67,6 +67,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 设置状态栏颜色
+     * 方法无效
      */
     public void setStatusBarColor() {
 //        StatusBarUtil.setColor(this, getResources()

@@ -4,14 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
-
-    <View
-        android:id="@+id/fake_status_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/statusbar_view_height"
-        android:background="@android:color/transparent"
-        android:visibility="visible"/>
-
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/srl_home"
         android:layout_width="match_parent"
@@ -29,7 +21,6 @@
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
     <RelativeLayout
         android:id="@+id/rl_search_header"
-        android:layout_below="@+id/fake_status_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"

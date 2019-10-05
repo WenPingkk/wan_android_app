@@ -3,13 +3,17 @@ package com.sean.module.main.fragment;
 import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +43,7 @@ import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Author WenPing
@@ -78,8 +83,11 @@ public class HomeFragment extends BaseMVPFragment<HomePresenter> implements Home
         return R.layout.fragment_home;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void initView(View rootView) {
+        //修复状态栏问题
+        setImmerseLayout(rootView);
         refreshLayout = rootView.findViewById(R.id.srl_home);
         logoImgView = rootView.findViewById(R.id.iv_home_logo);
         recyclerView = rootView.findViewById(R.id.rv_home);
@@ -338,5 +346,15 @@ public class HomeFragment extends BaseMVPFragment<HomePresenter> implements Home
         ARouter.getInstance()
                 .build("/user/LoginActivity")
                 .navigation();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    protected void setImmerseLayout(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = Objects.requireNonNull(getActivity()).getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            int statusBarHeight = StatusBarUtil.getStatusBarHeight(view.getContext());
+            view.setPadding(0, statusBarHeight, 0, 0);
+        }
     }
 }
