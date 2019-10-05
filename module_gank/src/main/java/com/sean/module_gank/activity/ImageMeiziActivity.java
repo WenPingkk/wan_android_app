@@ -25,7 +25,8 @@ import java.util.List;
 /**
  * Author WenPing
  * CreateTime 2019/10/5.
- * Description:
+ * Description:Meizi 页面
+ * meiziresult 数据结构发生了改变；修改了baseresponse以及bean
  */
 @Route(path = "/gank/ImageMeiziActivity")
 public class ImageMeiziActivity extends BaseMVPActivity<MeiziPresenter> implements MeiziContract.View {

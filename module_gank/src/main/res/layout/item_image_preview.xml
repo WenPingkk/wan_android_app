@@ -5,6 +5,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
+<!--    使用photoview-->
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/pv_photo"
         android:layout_width="match_parent"

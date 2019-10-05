@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">module_gank</string>
     <string name="meizi">小姐姐</string>
+    <string name="position_and_count">%1$d / %2$d</string>
 </resources>
