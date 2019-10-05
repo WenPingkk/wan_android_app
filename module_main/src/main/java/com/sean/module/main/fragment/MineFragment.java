@@ -65,6 +65,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             gotoMeiziActivity();
         }
     }
+
     private void gotoMeiziActivity() {
         ARouter.getInstance()
                 .build("/gank/ImageMeiziActivity")

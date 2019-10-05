@@ -14,6 +14,7 @@
                   android:exported="false" />
         <activity android:name=".activity.SystemArticleActivity" />
         <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.FavoriteActivity" />
     </application>
 
 </manifest>
