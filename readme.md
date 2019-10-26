@@ -23,3 +23,13 @@
  * 使用参考: 
  * https://www.jianshu.com/p/8cb0a1450cbb
  * https://blog.csdn.net/u010054982/article/details/88740122
+
+# 要点
+- 1.状态栏
+- 2.mvp架构
+- 3.封装
+- 4.viewpager 和tablayout
+- 5.路由深入学习
+- 6.snappagerhelper配合viewpager使用
+- retrofit封装使用和拦截
+- 8.aop使用
